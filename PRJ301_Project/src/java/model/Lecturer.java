@@ -6,13 +6,42 @@ package model;
 
 import java.util.ArrayList;
 
-
+/**
+ *
+ * @author Ngo Tung Son
+ */
 public class Lecturer {
     private int id;
     private String name;
     private ArrayList<Group> groups = new ArrayList<>();
     private ArrayList<Session> sessions = new ArrayList<>();
+    private String username;
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Lecturer(int id, String name, String username) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+    }
+
+    public Lecturer() {
+    }
+
+    public Lecturer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
+    
+    
+    
     public int getId() {
         return id;
     }

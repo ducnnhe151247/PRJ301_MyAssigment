@@ -13,9 +13,9 @@
         Take attendance for Group: ${requestScope.ses.group.name} <br/>
         Subject: ${requestScope.ses.group.subject.name} <br/>
         Room: ${requestScope.ses.room.name} <br/>
-        Date: ${requestScope.ses.date} - ${requestScope.ses.slot.description}<br/>
-        Attended: <span style="color: red;"> ${requestScope.ses.attanded?"Yes":"No"} </span>
-        <form action="takeatt" method="POST">
+        Date: ${requestScope.ses.date} - ${requestScope.ses.timeslot.description}<br/>
+        Attended: <span style="color: red;"> ${requestScope.ses.attandated?"Yes":"No"} </span>
+        <form action="att" method="POST">
             <input type="hidden" name="sesid" value="${param.id}"/>
             <table border="1px">
                 <tr>
@@ -26,7 +26,7 @@
                     <td>Absent</td>
                     <td>Description</td>
                 </tr>
-                <c:forEach items="${requestScope.ses.atts}" var="a" varStatus="loop">
+                <c:forEach items="${requestScope.ses.attandances}" var="a" varStatus="loop">
                  <tr>
                     <td>${loop.index+1}</td>
                     <td>${a.student.id}

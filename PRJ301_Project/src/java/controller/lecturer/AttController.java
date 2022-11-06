@@ -12,7 +12,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Attendance;
+import model.Attandance;
+
 import model.Session;
 import model.Student;
 
@@ -56,17 +57,17 @@ public class AttController extends HttpServlet {
         ses.setId(Integer.parseInt(request.getParameter("sesid")));
         String[] stdids = request.getParameterValues("stdid");
         for (String stdid : stdids) {
-            Attendance a =new Attendance();
+            Attandance a =new Attandance();
             Student s = new Student();
             a.setStudent(s);
             a.setDescription(request.getParameter("description"+stdid));
             a.setPresent(request.getParameter("present"+stdid).equals("present"));
             s.setId(Integer.parseInt(stdid));
-            ses.getAtts().add(a);
+            ses.getAttandances().add(a);
         }
         SessionDBContext db = new SessionDBContext();
         db.update(ses);
-        response.sendRedirect("takeatt?id="+ses.getId());
+        response.sendRedirect("att?id="+ses.getId());
     }
 
     /** 

@@ -6,12 +6,15 @@ package model;
 
 import java.util.ArrayList;
 
-
+/**
+ *
+ * @author Ngo Tung Son
+ */
 public class Student {
     private int id;
     private String name;
     private ArrayList<Group> groups = new ArrayList<>();
-    private ArrayList<Attendance> atts = new ArrayList<>();
+    private ArrayList<Attandance> attandances = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -37,12 +40,12 @@ public class Student {
         this.groups = groups;
     }
 
-    public ArrayList<Attendance> getAtts() {
-        return atts;
+    public ArrayList<Attandance> getAttandances() {
+        return attandances;
     }
 
-    public void setAtts(ArrayList<Attendance> atts) {
-        this.atts = atts;
+    public void setAttandances(ArrayList<Attandance> attandances) {
+        this.attandances = attandances;
     }
     
 }
