@@ -10,7 +10,7 @@
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>controller.lecturer.LoginServlet</servlet-class>
+        <servlet-class>controller.lecturer.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AttController</servlet-name>

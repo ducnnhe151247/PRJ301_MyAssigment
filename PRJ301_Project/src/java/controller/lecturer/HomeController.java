@@ -5,21 +5,18 @@
 
 package controller.lecturer;
 
-import dal.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Account;
-import model.Lecturer;
 
 /**
  *
- * @author MSI LAPTOP
+ * @author sonnt
  */
-public class LoginServlet extends HttpServlet {
+public class HomeController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,19 +27,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        request.getRequestDispatcher("../view/lecture/home.jsp").forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -56,7 +41,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       
+        processRequest(request, response);
     } 
 
     /** 
@@ -69,22 +54,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-      //  processRequest(request, response);
-      String  username = request.getParameter("username");
-      String password = request.getParameter("password");
-      DAO d = new DAO();
-      Account acc = d.getAccbyLogin(username, password);
-        if (acc != null) {
-            request.getSession().setAttribute("acc", acc);
-            Lecturer lec = d.getLecByAcc(acc);
-            if (lec != null) {
-                response.sendRedirect("lecturer/timetable?lid=" + lec.getId());
-            }else{
-                 response.getWriter().print("Access denied!");
-            }
-        }else{
-            response.getWriter().print("Login failed!");
-        }
+        processRequest(request, response);
     }
 
     /** 

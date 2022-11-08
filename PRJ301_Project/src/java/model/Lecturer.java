@@ -15,7 +15,7 @@ public class Lecturer {
     private String name;
     private ArrayList<Group> groups = new ArrayList<>();
     private ArrayList<Session> sessions = new ArrayList<>();
-    private String username;
+    private String username;    
 
     public String getUsername() {
         return username;

@@ -27,7 +27,7 @@ public class DAO extends DBContext<Account> {
                 return new Lecturer(rs.getInt("lid"), rs.getString("lname"), rs.getString("username"));
             }
         } catch (SQLException e) {
-        }
+        }       
         return null;
     }
 
@@ -44,7 +44,7 @@ public class DAO extends DBContext<Account> {
                 acc.setUsername(rs.getString("username"));
                 acc.setPassword(rs.getString("password"));
                 acc.setDisplayname(rs.getString("displayname"));
-                return acc;
+            return acc;
             }
         } catch (SQLException e) {
         }

@@ -6,14 +6,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <html>
     <head>
         <title>TODO supply a title</title>
+        <link href="CSS/login.css" rel="stylesheet"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form action="login" method="post">
-            Username: <input type="text" name="username"/>
-            Password: <input type="password" name="password"/>
-            <input type="submit" value="Login"/>
-        </form>
+        <div class="login-wrapper">
+            <form action="login" method="post" class="form">
+                <img src="https://th.bing.com/th/id/R.2d9d532191b844ccd29ac315aa924653?rik=E%2b5y7iTwdp2bgw&riu=http%3a%2f%2fbourses-etudiants.ma%2fwp-content%2fuploads%2f2017%2f07%2fLogo_fpt_university.jpg&ehk=tEsBFN76vZ2Sy20Jq%2bIj9m2lSBPHDbthakpJdSktTh8%3d&risl=&pid=ImgRaw&r=0" alt="FPT University">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <input type="text" name="username" id="loginUser" required><!-- comment -->
+                    <label for="loginUser">Username</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" required>
+                     <label for="loginPW">Password</label>
+                </div>
+        <input type="submit" value="Login" class="submit-btn">
+      
+        </div>
+
+
+
+
     </body>
 </html>
